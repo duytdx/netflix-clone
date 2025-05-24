@@ -1,0 +1,42 @@
+export const UsersData = [
+  {
+    name: "Marcus Reynolds",
+    fullName: "Marcus Anthony Reynolds",
+    image: "c1.jpg",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    rate: 4.5,
+    email: "marcus.reynolds@example.com",
+  },
+  {
+    name: "Alexander Bennett",
+    fullName: "Alexander James Bennett",
+    image: "c2.jpg",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    rate: 4.0,
+    email: "alexander.bennett@example.com",
+  },
+  {
+    name: "Jonathan Parker",
+    fullName: "Jonathan Michael Parker",
+    image: "c3.jpg",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    rate: 3.5,
+    email: "jonathan.parker@example.com",
+  },
+  {
+    name: "Daniel Whitfield",
+    fullName: "Daniel Edward Whitfield",
+    image: "c4.jpg",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    rate: 4.8,
+    email: "daniel.whitfield@example.com",
+  },
+  {
+    name: "Marcus Reynolds",
+    fullName: "Marcus Anthony Reynolds",
+    image: "c1.jpg",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    rate: 4.5,
+    email: "marcus.reynolds@example.com",
+  },
+];

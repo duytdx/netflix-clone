@@ -1,0 +1,12 @@
+# robots.txt
+
+# Allow all bots
+User-agent: *
+Allow: /
+
+# Disallow crawling of certain directories
+Disallow: /api/
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://www.yourdomain.com/sitemap.xml
