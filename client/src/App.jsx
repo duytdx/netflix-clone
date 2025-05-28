@@ -20,9 +20,16 @@ import AddMovie from "./Screens/Dashboard/Admin/AddMovie";
 import ToastContainer from "./Components/Notfications/ToastContainer";
 import { ProtectedRouter, AdminProtectedRouter } from "./ProtectedRouter";
 import Aos from "aos";
+import { useDispatch } from "react-redux";
+import { getAllCategoriesAction } from "./Redux/Actions/CategoriesActions";
+import { useEffect } from "react";
 
 function App() {
   Aos.init();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllCategoriesAction());
+  }, [dispatch]);
   return (
     <>
       <ToastContainer />

@@ -1,13 +1,25 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaSearch, FaUser, FaHeart, FaBars } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getAllMovies } from "../../Redux/Actions/MoviesActions";
 
 function NavBar() {
   const { userInfo } = useSelector((state) => state.userLogin);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const hover = "hover:text-red-500 transitions text-white";
   const Hover = ({ isActive }) => (isActive ? "text-subMain" : hover);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      dispatch(getAllMovies({ search: searchTerm }));
+      navigate("/movies");
+    }
+  };
 
   return (
     <div className="bg-main shadow-md sticky top-0 z-20">
@@ -24,10 +36,12 @@ function NavBar() {
 
           {/* Search Bar - Hidden on Mobile */}
           <div className="hidden md:flex flex-1 mx-8">
-            <form className="w-full max-w-2xl relative">
+            <form onSubmit={handleSearch} className="w-full max-w-2xl relative">
               <input
                 type="text"
                 placeholder="Search Movie Name from here"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full px-12 py-2 text-sm bg-dryGray text-border rounded-md focus:outline-none focus:ring-1 focus:ring-subMain"
               />
               <button
@@ -80,10 +94,12 @@ function NavBar() {
 
         {/* Mobile Search - Visible on Mobile Only */}
         <div className="md:hidden py-4">
-          <form className="relative">
+          <form onSubmit={handleSearch} className="relative">
             <input
               type="text"
               placeholder="Search Movie Name from here"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full px-12 py-2 text-sm bg-dryGray text-border rounded-md focus:outline-none focus:ring-1 focus:ring-subMain"
             />
             <button
